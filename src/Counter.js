@@ -1,15 +1,16 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
+import { count } from 'yargs'
 
 
 function Counter() {
-    useEffect(()=>{
-          console.log('Mounting...')
-          return ()=>{
-              console.log('Unmounting...')
-          }
-    })
     const [count,setCount] = useState(0)
+ 
+    useEffect(()=>{
+          console.log('Mounting...');
+          console.log('updating...'+count);
+    },[count])
+   
     return (
         <div>
             <button onClick={()=>setCount(count+1)}>Add</button>
